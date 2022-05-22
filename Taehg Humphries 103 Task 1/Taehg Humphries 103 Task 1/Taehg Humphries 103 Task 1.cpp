@@ -1,38 +1,37 @@
 #include <iostream>
 #include <string>
 
-enum compass { North = 1, East, South, West };
+enum position { goalkeeper = 'G', midfielder = 'M', striker = 'S', winger = 'W', defender = 'D' };
 
 
-void enums()
-{
+
+void enums() {
 
 	int input;
 
-	std::cout << "North = 1\nEast  = 2\nSouth = 3\nWest  = 4\n";
-	std::cout << "what direction do you want to face? ";
+	std::cout << "\nWhat is the players position ";
+	std::cout << "\ngoalkeeper = G\nmidfielder = M\nstriker = S\nwinger = W\ndefender = D\n";
 	std::cin >> input;
 
-	compass direction = (compass)input;
+	position place = (position)input;
+
+	switch (place) {
+
+	case 'G':
+		std::cout << "This player is a Goalkeeper";
+
+	case 'M':
+		std::cout << "This player is a Midfielder";
+
+	case 'S':
+		std::cout << "This player is a Striker";
 
 
-	switch (direction) {
+	case 'W':
+		std::cout << "This player is a Winger";
 
-	case compass::North:
-		std::cout << "you are currently facing North.";
-		break;
-
-	case compass::East:
-		std::cout << "in order to face East turn 90 degrees to the right.";
-		break;
-
-	case compass::South:
-		std::cout << "in order to face South, turn 180 degrees in any direction.";
-		break;
-
-	case compass::West:
-		std::cout << "in order to face West turn 90 degrees to the left.";
-		break;
+	case 'D':
+		std::cout << "This player is a Defender";
 
 	default:
 		break;
@@ -47,6 +46,9 @@ struct soccer {
 };
 
 int main() {
+
+
+
 	// Create a car structure and store it in myCar1;
 	soccer player1;
 
@@ -54,19 +56,25 @@ int main() {
 	std::cin >> player1.playerNumber;
 	std::cout << "Player 1 top speed: ";
 	std::cin >> player1.topSpeed;
+	enums();
+
 
 
 	std::cout << "\n-------------\n";
 	// Create another car structure and store it in myCar2;
 	soccer player2;
+
 	std::cout << "Player 2 number: ";
 	std::cin >> player2.playerNumber;
 	std::cout << "Player 2 top speed: ";
 	std::cin >> player2.topSpeed;
+	enums();
+
+
 
 	// Print the structure members
-	std::cout << player1.playerNumber << " " << player1.topSpeed << "\n";
-	std::cout << player2.playerNumber << " " << player2.topSpeed << "\n";
+	std::cout << "\n-------------\n";
+	std::cout << "player 1: Number " << player1.playerNumber << ", Top Speed (mph)" << player1.topSpeed << position() << "\n";
+	std::cout << "player 2: Number " << player2.playerNumber << ", Top Speed (mph)" << player2.topSpeed << "\n";
 
-	return 0;
 }
